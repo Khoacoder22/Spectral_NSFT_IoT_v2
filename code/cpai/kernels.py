@@ -17,7 +17,7 @@ from sklearn.metrics.pairwise import cosine_similarity, chi2_kernel # chi-kernel
 from sklearn.metrics.pairwise import pairwise_kernels as sk_pairwise
 
 SKLEARN_KERNELS = ("linear", "poly", "rbf", "sigmoid")
-CUSTOM_KERNELS = ("abel", "laplacian", "sobolev", "rff", "chi2", "l05_exponential_kernel", "l_exponential_kernel")
+CUSTOM_KERNELS = ("abel", "laplacian", "sobolev",          "rff", "chi2", "l05_exponential_kernel", "l_exponential_kernel")
 KERNEL_CHOICES = ("none", *SKLEARN_KERNELS, *CUSTOM_KERNELS)
 
 ABEL_ALPHA = 0.1

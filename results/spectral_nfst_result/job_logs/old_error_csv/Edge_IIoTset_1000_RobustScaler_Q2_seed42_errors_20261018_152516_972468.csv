@@ -1,0 +1,2 @@
+Dataset,Kernel,Gamma,Feature,Scaler,Q,Seed,Error
+Edge_IIoTset_1000,l05_exponential_kernel,10,0,RobustScaler,2,42,LinAlgError: SVD did not converge

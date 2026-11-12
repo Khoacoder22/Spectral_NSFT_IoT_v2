@@ -1,0 +1,3 @@
+Dataset,Kernel,Gamma,Feature,Scaler,Q,Seed,Error
+CIC_IoT2023_1000,l05_exponential_kernel,10,-1,RobustScaler,5,44,LinAlgError: SVD did not converge
+CIC_IoT2023_1000,l05_exponential_kernel,10,0,RobustScaler,5,44,LinAlgError: SVD did not converge

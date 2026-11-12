@@ -71,17 +71,17 @@ Write-Host "Kernel   : $fixedKernel (fixed)"
 Write-Host "Seeds    : $($fixedSeeds -join ', ') (fixed)"
 Write-Host "Output   : $modelOutput"
 
-foreach ($dataset in $datasets.Keys) {
-    $limit = [int]$datasets[$dataset]
+foreach ($datasetEntry in $datasets.GetEnumerator()) {
+    $dataset = [string]$datasetEntry.Key
+    $limit = [int]$datasetEntry.Value
     $dataType = "${dataset}_${limit}"
-    Write-Host "`n=== $dataType ===" -ForegroundColor Cyan
+
+    $existingRows = @()
+    if (Test-Path -LiteralPath $modelOutput) {
+        $existingRows = @(Import-Csv -LiteralPath $modelOutput)
+    }
 
     foreach ($seed in $fixedSeeds) {
-        $existingRows = if (Test-Path -LiteralPath $modelOutput) {
-            @(Import-Csv -LiteralPath $modelOutput)
-        } else {
-            @()
-        }
         $completed = @(
             $existingRows | Where-Object {
                 $_.'Data Type' -eq $dataType -and [int]$_.Seed -eq $seed

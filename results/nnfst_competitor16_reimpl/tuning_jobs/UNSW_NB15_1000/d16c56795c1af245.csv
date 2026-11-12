@@ -1,0 +1,2 @@
+﻿Data Type,Seed,r,Gamma,Kernel,SCALER,Poly,MCC,F1 Macro,ACC,Train_On_Inner,Train_Used_Tuning,Validation_Rows,Outer_Train_Rows,Fit_Seconds,Validation_Fraction,Tuning_Limit,Relative_Tol,Selection_Set
+UNSW_NB15_1000,42,30,0.01,l05_exponential_kernel,QuantileTransformer,0,0.4401962248535422,46.9626536613842,51.31332082551595,4263,800,1066,5329,0.18853929999750108,0.2,800,1e-09,INNER_VALIDATION_NOT_TEST

@@ -1,0 +1,2 @@
+﻿Seed,Input Model,Data Type,Poly,Kernel,SCALER,Model,MCC,ACC,F1 Macro,Training time,Test time,r,Gamma,N_Train_Original,N_Train_Used,N_Test,Run_Type,Q_SCC,Projection_Dim,Within_Null_Error,Algorithm_Source,Protocol
+43,nNFST_paper_reimplementation,Edge_IIoTset_1000,-1,l05_exponential_kernel,QuantileTransformer,nNFST_paper_reimplementation,0.5780007673389864,60.43333333333333,60.50895140493164,0.0403253999993467,0.013284000000567175,5,0.1,11440,400,3000,PILOT_SUBSAMPLED,79,59,7.7326401594962655e-16,independent_reimplementation_not_official,closed_set

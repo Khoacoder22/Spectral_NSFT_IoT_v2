@@ -1,0 +1,2 @@
+Dataset,Kernel,Gamma,Feature,Scaler,Q,Seed,Error
+N_BaIoT_1000,l05_exponential_kernel,0.1,-1,RobustScaler,5,44,LinAlgError: SVD did not converge

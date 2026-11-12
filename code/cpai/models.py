@@ -150,7 +150,12 @@ class HHHv2:
 
     def fit(self, X: np.ndarray, y: np.ndarray) -> "HHHv2":
         self.X_train = X
-        y_onehot = OneHotEncoder(sparse_output=False).fit_transform(y.reshape(-1, 1))
+        try:
+            encoder = OneHotEncoder(sparse_output=False)
+        except TypeError:
+            encoder = OneHotEncoder(sparse=False)
+
+        y_onehot = encoder.fit_transform(y.reshape(-1, 1))
         r = self.ridge if self.ridge is not None else 1e-5
         g = self._resolve_gamma(X)
         if self.kernel is None or self.kernel == "none":

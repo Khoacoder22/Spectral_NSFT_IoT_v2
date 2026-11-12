@@ -1,0 +1,2 @@
+﻿Seed,Input Model,Data Type,Poly,Kernel,SCALER,Model,MCC,ACC,F1 Macro,Training time,Test time,r,Gamma,N_Train_Original,N_Train_Used,N_Test,Run_Type,Q_SCC,Projection_Dim,Within_Null_Error,Algorithm_Source,Protocol
+43,nNFST_paper_reimplementation,IoTID20_1000,-1,l05_exponential_kernel,QuantileTransformer,nNFST_paper_reimplementation,0.9076626374601229,93.83333333333333,93.86242226210166,0.0414240999998583,0.00305819999994128,5,0.1,2320,400,600,PILOT_SUBSAMPLED,53,52,6.249852975467657e-16,independent_reimplementation_not_official,closed_set

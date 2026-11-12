@@ -1,0 +1,2 @@
+﻿Data Type,Seed,r,Gamma,Kernel,SCALER,Poly,MCC,F1 Macro,ACC,Train_On_Inner,Train_Used_Tuning,Validation_Rows,Outer_Train_Rows,Fit_Seconds,Validation_Fraction,Tuning_Limit,Relative_Tol,Selection_Set
+ToN_IoT_1000,43,10,0.001,l05_exponential_kernel,QuantileTransformer,2,0.9717901888519841,97.36489606296676,97.58120248790601,5786,800,1447,7233,0.20498030000089784,0.2,800,1e-09,INNER_VALIDATION_NOT_TEST

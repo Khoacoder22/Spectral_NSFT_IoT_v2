@@ -1,0 +1,272 @@
+﻿============================================================
+DATASET: 5G_NIDD_1000
+============================================================
+
+SpectralNFST-Tuned Parameters:
+  Kernel  : l05_exponential_kernel
+  Scaler  : QuantileTransformer
+  Gamma   : 0.01
+  Feature : -1
+  Q       : 1
+  Best Seed: 43
+  MCC      : 0.998126039715166
+  F1 Macro : 99.8334704921508
+
+Ranking:
+1     SpectralNFST-Tuned   Seed=43  MCC=0.998126  MCC_vs_Spectral=0.000000  F1=99.83
+2     HHHv2                Seed=44  MCC=0.993774  MCC_vs_Spectral=-0.004352  F1=99.45
+3     KNFST                Seed=44  MCC=0.993772  MCC_vs_Spectral=-0.004354  F1=99.45
+4     LGBM                 Seed=44  MCC=0.992521  MCC_vs_Spectral=-0.005605  F1=99.33
+5     SAINT                Seed=44  MCC=0.990645  MCC_vs_Spectral=-0.007481  F1=99.17
+6     MLP                  Seed=44  MCC=0.990644  MCC_vs_Spectral=-0.007482  F1=99.17
+7     FTTransformer        Seed=43  MCC=0.988160  MCC_vs_Spectral=-0.009966  F1=98.95
+8     TabNet               Seed=43  MCC=0.987541  MCC_vs_Spectral=-0.010585  F1=98.90
+9     KNN                  Seed=43  MCC=0.986910  MCC_vs_Spectral=-0.011216  F1=98.84
+10    SGD                  Seed=43  MCC=0.971528  MCC_vs_Spectral=-0.026598  F1=97.45
+11    HHH                  Seed=44  MCC=0.967007  MCC_vs_Spectral=-0.031120  F1=87.40
+12    NuSVC                Seed=43  MCC=0.949895  MCC_vs_Spectral=-0.048231  F1=95.50
+13    LDA                  Seed=43  MCC=0.911985  MCC_vs_Spectral=-0.086141  F1=91.43
+14    RNC                  Seed=43  MCC=0.885986  MCC_vs_Spectral=-0.112140  F1=89.58
+15    GauNB                Seed=43  MCC=0.863846  MCC_vs_Spectral=-0.134280  F1=86.89
+16    NC                   Seed=42  MCC=0.751407  MCC_vs_Spectral=-0.246719  F1=72.91
+
+MCC vs Spectral: positive = higher MCC than Spectral, negative = lower MCC.
+
+============================================================
+DATASET: BoT_IoT_1000
+============================================================
+
+SpectralNFST-Tuned Parameters:
+  Kernel  : l05_exponential_kernel
+  Scaler  : QuantileTransformer
+  Gamma   : 0.01
+  Feature : -1
+  Q       : 1
+  Best Seed: 44
+  MCC      : 0.998197291138037
+  F1 Macro : 99.8127333021175
+
+Ranking:
+1     LGBM                 Seed=44  MCC=0.998798  MCC_vs_Spectral=0.000601  F1=99.86
+2     SpectralNFST-Tuned   Seed=44  MCC=0.998197  MCC_vs_Spectral=0.000000  F1=99.81
+3     HHHv2                Seed=44  MCC=0.997599  MCC_vs_Spectral=-0.000599  F1=99.74
+4     KNFST                Seed=44  MCC=0.997599  MCC_vs_Spectral=-0.000599  F1=99.74
+5     FTTransformer        Seed=42  MCC=0.995793  MCC_vs_Spectral=-0.002405  F1=99.56
+6     TabNet               Seed=44  MCC=0.995199  MCC_vs_Spectral=-0.002998  F1=99.49
+7     MLP                  Seed=44  MCC=0.994002  MCC_vs_Spectral=-0.004195  F1=99.38
+8     SAINT                Seed=43  MCC=0.993408  MCC_vs_Spectral=-0.004790  F1=99.27
+9     KNN                  Seed=44  MCC=0.987988  MCC_vs_Spectral=-0.010210  F1=98.84
+10    SGD                  Seed=44  MCC=0.983183  MCC_vs_Spectral=-0.015014  F1=98.34
+11    HHH                  Seed=44  MCC=0.981989  MCC_vs_Spectral=-0.016208  F1=98.34
+12    LDA                  Seed=42  MCC=0.968152  MCC_vs_Spectral=-0.030045  F1=97.09
+13    RNC                  Seed=44  MCC=0.956962  MCC_vs_Spectral=-0.041236  F1=96.11
+14    NuSVC                Seed=42  MCC=0.923651  MCC_vs_Spectral=-0.074546  F1=93.50
+15    GauNB                Seed=42  MCC=0.907445  MCC_vs_Spectral=-0.090753  F1=90.54
+16    NC                   Seed=43  MCC=0.802699  MCC_vs_Spectral=-0.195498  F1=78.71
+
+MCC vs Spectral: positive = higher MCC than Spectral, negative = lower MCC.
+
+============================================================
+DATASET: CIC_IoT2023_1000
+============================================================
+
+SpectralNFST-Tuned Parameters:
+  Kernel  : l05_exponential_kernel
+  Scaler  : QuantileTransformer
+  Gamma   : 0.1
+  Feature : -1
+  Q       : 1
+  Best Seed: 44
+  MCC      : 0.967208145896275
+  F1 Macro : 96.1528241045936
+
+Ranking:
+1     LGBM                 Seed=42  MCC=0.972208  MCC_vs_Spectral=0.005000  F1=96.77
+2     KNFST                Seed=44  MCC=0.968653  MCC_vs_Spectral=0.001445  F1=96.32
+3     SpectralNFST-Tuned   Seed=44  MCC=0.967208  MCC_vs_Spectral=0.000000  F1=96.15
+4     HHHv2                Seed=44  MCC=0.966543  MCC_vs_Spectral=-0.000665  F1=96.07
+5     SAINT                Seed=44  MCC=0.961138  MCC_vs_Spectral=-0.006070  F1=95.42
+6     TabNet               Seed=44  MCC=0.952893  MCC_vs_Spectral=-0.014315  F1=94.52
+7     MLP                  Seed=44  MCC=0.948957  MCC_vs_Spectral=-0.018251  F1=93.91
+8     FTTransformer        Seed=44  MCC=0.941692  MCC_vs_Spectral=-0.025516  F1=93.18
+9     KNN                  Seed=43  MCC=0.884896  MCC_vs_Spectral=-0.082312  F1=86.68
+10    NuSVC                Seed=44  MCC=0.877946  MCC_vs_Spectral=-0.089262  F1=88.21
+11    SGD                  Seed=42  MCC=0.871337  MCC_vs_Spectral=-0.095871  F1=84.47
+12    LDA                  Seed=44  MCC=0.857130  MCC_vs_Spectral=-0.110078  F1=83.33
+13    HHH                  Seed=44  MCC=0.807633  MCC_vs_Spectral=-0.159575  F1=67.26
+14    GauNB                Seed=44  MCC=0.785396  MCC_vs_Spectral=-0.181812  F1=76.05
+15    RNC                  Seed=43  MCC=0.684280  MCC_vs_Spectral=-0.282928  F1=69.47
+16    NC                   Seed=43  MCC=0.501785  MCC_vs_Spectral=-0.465423  F1=52.05
+
+MCC vs Spectral: positive = higher MCC than Spectral, negative = lower MCC.
+
+============================================================
+DATASET: Edge_IIoTset_1000
+============================================================
+
+SpectralNFST-Tuned Parameters:
+  Kernel  : l05_exponential_kernel
+  Scaler  : QuantileTransformer
+  Gamma   : 0.1
+  Feature : 0
+  Q       : 5
+  Best Seed: 43
+  MCC      : 0.81141417833575
+  F1 Macro : 81.9634227393982
+
+Ranking:
+1     HHHv2                Seed=42  MCC=0.892074  MCC_vs_Spectral=0.080660  F1=89.93
+2     LGBM                 Seed=42  MCC=0.889921  MCC_vs_Spectral=0.078507  F1=89.72
+3     SAINT                Seed=44  MCC=0.851522  MCC_vs_Spectral=0.040108  F1=85.98
+4     SpectralNFST-Tuned   Seed=43  MCC=0.811414  MCC_vs_Spectral=0.000000  F1=81.96
+5     FTTransformer        Seed=44  MCC=0.807568  MCC_vs_Spectral=-0.003846  F1=81.68
+6     MLP                  Seed=43  MCC=0.763031  MCC_vs_Spectral=-0.048384  F1=77.25
+7     KNN                  Seed=42  MCC=0.730829  MCC_vs_Spectral=-0.080586  F1=74.34
+8     TabNet               Seed=42  MCC=0.701037  MCC_vs_Spectral=-0.110377  F1=71.30
+9     NuSVC                Seed=44  MCC=0.678809  MCC_vs_Spectral=-0.132605  F1=68.25
+10    RNC                  Seed=44  MCC=0.621834  MCC_vs_Spectral=-0.189580  F1=63.07
+11    HHH                  Seed=42  MCC=0.572651  MCC_vs_Spectral=-0.238763  F1=55.04
+12    LDA                  Seed=44  MCC=0.549714  MCC_vs_Spectral=-0.261700  F1=54.24
+13    SGD                  Seed=44  MCC=0.547306  MCC_vs_Spectral=-0.264108  F1=54.20
+14    KNFST                Seed=42  MCC=0.513463  MCC_vs_Spectral=-0.297951  F1=50.83
+15    GauNB                Seed=43  MCC=0.441137  MCC_vs_Spectral=-0.370277  F1=38.13
+16    NC                   Seed=43  MCC=0.409234  MCC_vs_Spectral=-0.402180  F1=38.98
+
+MCC vs Spectral: positive = higher MCC than Spectral, negative = lower MCC.
+
+============================================================
+DATASET: IoTID20_2000
+============================================================
+
+SpectralNFST-Tuned Parameters:
+  Kernel  : l05_exponential_kernel
+  Scaler  : QuantileTransformer
+  Gamma   : 0.01
+  Feature : -1
+  Q       : 2
+  Best Seed: 42
+  MCC      : 0.902156121817036
+  F1 Macro : 92.1745965927114
+
+Ranking:
+1     LGBM                 Seed=44  MCC=0.950230  MCC_vs_Spectral=0.048074  F1=96.02
+2     HHHv2                Seed=44  MCC=0.904721  MCC_vs_Spectral=0.002565  F1=92.37
+3     SpectralNFST-Tuned   Seed=42  MCC=0.902156  MCC_vs_Spectral=0.000000  F1=92.17
+4     SAINT                Seed=43  MCC=0.887029  MCC_vs_Spectral=-0.015127  F1=90.86
+5     TabNet               Seed=43  MCC=0.876714  MCC_vs_Spectral=-0.025442  F1=90.05
+6     FTTransformer        Seed=44  MCC=0.864699  MCC_vs_Spectral=-0.037457  F1=89.01
+7     HHH                  Seed=44  MCC=0.828088  MCC_vs_Spectral=-0.074068  F1=71.84
+8     KNN                  Seed=42  MCC=0.827214  MCC_vs_Spectral=-0.074942  F1=86.09
+9     MLP                  Seed=42  MCC=0.811866  MCC_vs_Spectral=-0.090290  F1=84.87
+10    SGD                  Seed=43  MCC=0.745072  MCC_vs_Spectral=-0.157084  F1=79.75
+11    NuSVC                Seed=42  MCC=0.736608  MCC_vs_Spectral=-0.165548  F1=78.10
+12    RNC                  Seed=42  MCC=0.734646  MCC_vs_Spectral=-0.167510  F1=78.32
+13    LDA                  Seed=42  MCC=0.723675  MCC_vs_Spectral=-0.178481  F1=78.09
+14    KNFST                Seed=44  MCC=0.685947  MCC_vs_Spectral=-0.216209  F1=75.26
+15    GauNB                Seed=42  MCC=0.536941  MCC_vs_Spectral=-0.365215  F1=53.38
+16    NC                   Seed=42  MCC=0.427469  MCC_vs_Spectral=-0.474688  F1=48.89
+
+MCC vs Spectral: positive = higher MCC than Spectral, negative = lower MCC.
+
+============================================================
+DATASET: N_BaIoT_1000
+============================================================
+
+SpectralNFST-Tuned Parameters:
+  Kernel  : l05_exponential_kernel
+  Scaler  : QuantileTransformer
+  Gamma   : 0.01
+  Feature : -1
+  Q       : 1
+  Best Seed: 42
+  MCC      : 0.998127426007109
+  F1 Macro : 99.8336048885912
+
+Ranking:
+1     LGBM                 Seed=42  MCC=0.998128  MCC_vs_Spectral=0.000001  F1=99.83
+2     HHHv2                Seed=42  MCC=0.998127  MCC_vs_Spectral=0.000000  F1=99.83
+3     SAINT                Seed=42  MCC=0.998127  MCC_vs_Spectral=0.000000  F1=99.83
+4     SpectralNFST-Tuned   Seed=42  MCC=0.998127  MCC_vs_Spectral=0.000000  F1=99.83
+5     MLP                  Seed=43  MCC=0.995004  MCC_vs_Spectral=-0.003123  F1=99.56
+6     KNFST                Seed=42  MCC=0.993151  MCC_vs_Spectral=-0.004976  F1=99.39
+7     TabNet               Seed=44  MCC=0.986274  MCC_vs_Spectral=-0.011853  F1=98.78
+8     KNN                  Seed=42  MCC=0.983777  MCC_vs_Spectral=-0.014351  F1=98.55
+9     NuSVC                Seed=43  MCC=0.976930  MCC_vs_Spectral=-0.021198  F1=97.94
+10    FTTransformer        Seed=43  MCC=0.948415  MCC_vs_Spectral=-0.049712  F1=95.02
+11    SGD                  Seed=43  MCC=0.945932  MCC_vs_Spectral=-0.052196  F1=94.89
+12    LDA                  Seed=42  MCC=0.883483  MCC_vs_Spectral=-0.114645  F1=87.82
+13    HHH                  Seed=42  MCC=0.834845  MCC_vs_Spectral=-0.163283  F1=76.09
+14    GauNB                Seed=42  MCC=0.720660  MCC_vs_Spectral=-0.277467  F1=71.26
+15    RNC                  Seed=42  MCC=0.697431  MCC_vs_Spectral=-0.300697  F1=72.62
+16    NC                   Seed=42  MCC=0.449928  MCC_vs_Spectral=-0.548199  F1=39.74
+
+MCC vs Spectral: positive = higher MCC than Spectral, negative = lower MCC.
+
+============================================================
+DATASET: ToN_IoT_1000
+============================================================
+
+SpectralNFST-Tuned Parameters:
+  Kernel  : l05_exponential_kernel
+  Scaler  : QuantileTransformer
+  Gamma   : 0.001
+  Feature : 0
+  Q       : 2
+  Best Seed: 44
+  MCC      : 0.98843242686331
+  F1 Macro : 98.821046245618
+
+Ranking:
+1     LGBM                 Seed=44  MCC=0.992094  MCC_vs_Spectral=0.003662  F1=99.28
+2     SpectralNFST-Tuned   Seed=44  MCC=0.988432  MCC_vs_Spectral=0.000000  F1=98.82
+3     HHHv2                Seed=44  MCC=0.987228  MCC_vs_Spectral=-0.001204  F1=98.89
+4     SAINT                Seed=44  MCC=0.986035  MCC_vs_Spectral=-0.002398  F1=98.66
+5     KNFST                Seed=44  MCC=0.986031  MCC_vs_Spectral=-0.002402  F1=98.70
+6     KNN                  Seed=44  MCC=0.972025  MCC_vs_Spectral=-0.016408  F1=97.48
+7     MLP                  Seed=42  MCC=0.971414  MCC_vs_Spectral=-0.017018  F1=97.25
+8     FTTransformer        Seed=44  MCC=0.970220  MCC_vs_Spectral=-0.018213  F1=97.00
+9     TabNet               Seed=44  MCC=0.968487  MCC_vs_Spectral=-0.019946  F1=96.86
+10    HHH                  Seed=43  MCC=0.943132  MCC_vs_Spectral=-0.045301  F1=84.10
+11    RNC                  Seed=43  MCC=0.923360  MCC_vs_Spectral=-0.065072  F1=93.25
+12    NuSVC                Seed=44  MCC=0.909909  MCC_vs_Spectral=-0.078523  F1=91.38
+13    SGD                  Seed=42  MCC=0.895406  MCC_vs_Spectral=-0.093026  F1=89.84
+14    LDA                  Seed=43  MCC=0.894825  MCC_vs_Spectral=-0.093608  F1=89.30
+15    GauNB                Seed=42  MCC=0.495120  MCC_vs_Spectral=-0.493312  F1=46.48
+16    NC                   Seed=44  MCC=0.389941  MCC_vs_Spectral=-0.598492  F1=40.89
+
+MCC vs Spectral: positive = higher MCC than Spectral, negative = lower MCC.
+
+============================================================
+DATASET: UNSW_NB15_1000
+============================================================
+
+SpectralNFST-Tuned Parameters:
+  Kernel  : l05_exponential_kernel
+  Scaler  : QuantileTransformer
+  Gamma   : 0.1
+  Feature : 0
+  Q       : 2
+  Best Seed: 43
+  MCC      : 0.54314280675791
+  F1 Macro : 62.1571655154337
+
+Ranking:
+1     TabNet               Seed=42  MCC=0.624033  MCC_vs_Spectral=0.080891  F1=65.04
+2     SAINT                Seed=43  MCC=0.608744  MCC_vs_Spectral=0.065601  F1=64.48
+3     FTTransformer        Seed=44  MCC=0.604450  MCC_vs_Spectral=0.061307  F1=64.61
+4     MLP                  Seed=43  MCC=0.588474  MCC_vs_Spectral=0.045331  F1=61.00
+5     LGBM                 Seed=43  MCC=0.555401  MCC_vs_Spectral=0.012258  F1=64.96
+6     NuSVC                Seed=43  MCC=0.554740  MCC_vs_Spectral=0.011597  F1=58.69
+7     HHHv2                Seed=43  MCC=0.550090  MCC_vs_Spectral=0.006947  F1=63.42
+8     SpectralNFST-Tuned   Seed=43  MCC=0.543143  MCC_vs_Spectral=0.000000  F1=62.16
+9     SGD                  Seed=42  MCC=0.541772  MCC_vs_Spectral=-0.001370  F1=52.69
+10    LDA                  Seed=44  MCC=0.510894  MCC_vs_Spectral=-0.032249  F1=56.98
+11    KNN                  Seed=44  MCC=0.454628  MCC_vs_Spectral=-0.088515  F1=50.46
+12    HHH                  Seed=43  MCC=0.454064  MCC_vs_Spectral=-0.089078  F1=49.57
+13    GauNB                Seed=43  MCC=0.402453  MCC_vs_Spectral=-0.140690  F1=36.84
+14    KNFST                Seed=42  MCC=0.392770  MCC_vs_Spectral=-0.150373  F1=45.81
+15    RNC                  Seed=43  MCC=0.275279  MCC_vs_Spectral=-0.267864  F1=32.58
+16    NC                   Seed=44  MCC=0.153525  MCC_vs_Spectral=-0.389618  F1=19.39
+
+MCC vs Spectral: positive = higher MCC than Spectral, negative = lower MCC.
+

@@ -1,0 +1,2 @@
+﻿Seed,Input Model,Data Type,Poly,Kernel,SCALER,Model,MCC,ACC,F1 Macro,Training time,Test time,r,Gamma,N_Train_Original,N_Train_Used,N_Test,Run_Type,Q_SCC,Projection_Dim,Within_Null_Error,Algorithm_Source,Protocol
+42,nNFST_paper_reimplementation,5G_NIDD_1000,-1,l05_exponential_kernel,QuantileTransformer,nNFST_paper_reimplementation,0.9875051432693486,98.88888888888889,98.88967884847142,69.5845657000009,0.45484050000050047,5,0.1,6880,6880,1800,FULL_TRAIN,361,360,4.455556440134568e-15,independent_reimplementation_not_official,closed_set

@@ -1,0 +1,11 @@
+﻿Dataset,Numeric_Config_Rows_Q2_to_Q5,Expected_Numeric_Config_Rows_Q2_to_Q5,Missing_Numeric_Config_Rows,Candidates_All_3_Seeds,Candidate_Configs_Incomplete_Seeds,Q1_Reference_Rows
+5G_NIDD_1000,360,360,0,150,0,90
+BoT_IoT_1000,360,360,0,130,20,70
+CIC_IoT2023_1000,360,360,0,120,0,0
+Edge_IIoTset_1000,360,360,0,120,0,0
+IoTID20_1000,360,360,0,120,10,10
+IoTID20_2000,360,360,0,120,0,0
+N_BaIoT_1000,356,360,4,116,4,0
+ToN_IoT_1000,360,360,0,120,0,0
+ToN_IoT_2000,360,360,0,120,2,2
+UNSW_NB15_1000,355,360,5,115,5,0

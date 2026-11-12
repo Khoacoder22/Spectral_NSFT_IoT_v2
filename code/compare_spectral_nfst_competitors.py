@@ -4,7 +4,7 @@ then compare them with all complete seed-42 competitor CSVs.
 """
 
 from __future__ import annotations
-
+import argparse
 import io
 import sys
 import time
@@ -22,7 +22,7 @@ from cpai.paths import RESULTS_DIR
 from cpai.preprocessing import preprocess
 
 
-SEED = 42
+DEFAULT_SEED = 42
 KERNEL = "l05_exponential_kernel"
 SCALER = "QuantileTransformer"
 DATASETS = (
@@ -61,7 +61,7 @@ EXPECTED_COMPETITORS = {
 def _best_gamma_feature(dataset: str, limit: int) -> pd.Series:
     path = (
         RESULTS_DIR / "spectral_nfst" /
-        f"gamma_{dataset}_{limit}_full_seed{SEED}.csv"
+        f"gamma_{dataset}_{limit}_full_seed42.csv"
     )
     if not path.exists():
         raise FileNotFoundError(f"Missing gamma result: {path}")
@@ -186,11 +186,12 @@ def _run_final_spectral(configs: list[dict], output: Path) -> pd.DataFrame:
             f"[{position}/8] FINAL {config['data_type']}: gamma={config['gamma_label']}, "
             f"feature={config['feature']}, Q={config['q']}"
         )
-        if config["q"] == 2:
+        if config["q"] == 2 and SEED == 42:
             old = config["gamma_row"]
             metrics = {name: old[name] for name in (
                 "MCC", "ACC", "TPR Macro", "FPR", "PPV Macro", "F1 Macro"
             )}
+
             row = _result_row(
                 config,
                 metrics,
@@ -198,7 +199,9 @@ def _run_final_spectral(configs: list[dict], output: Path) -> pd.DataFrame:
                 old["Test time"],
                 "reused-gamma-grid",
             )
+
             print("    reused existing full-data Q=2 result")
+
         else:
             df, _ = load_dataset(config["dataset"], limit=config["limit"])
             X_train, y_train, X_test, y_test, _ = preprocess(
@@ -381,10 +384,24 @@ def _print_per_dataset_comparison(all_rows: pd.DataFrame) -> None:
 
 
 def main() -> int:
+    global SEED
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--seed",
+        type=int,
+        default=DEFAULT_SEED,
+        help="Random seed for final SpectralNFST evaluation"
+    )
+
+    args = parser.parse_args()
+    SEED = args.seed
+
     comparison_dir = RESULTS_DIR / "knfst_comparison"
     models_dir = comparison_dir / "models"
     models_dir.mkdir(parents=True, exist_ok=True)
-    tuned_path = models_dir / "SpectralNFST_Tuned.csv"
+
+    tuned_path = models_dir / f"SpectralNFST_Tuned_seed{SEED}.csv"
 
     configs = _best_configs()
     print("Reused best parameters:")
@@ -422,11 +439,11 @@ def main() -> int:
         .reset_index(drop=True)
     )
     ranking.insert(0, "Rank", range(1, len(ranking) + 1))
-    ranking_path = comparison_dir / "seed42_spectral_tuned_ranking.csv"
+    ranking_path = comparison_dir / f"seed{SEED}_spectral_tuned_ranking.csv"
     ranking.to_csv(ranking_path, index=False)
 
     with pd.option_context("display.max_columns", None, "display.width", 220):
-        print("\nRanking by mean MCC across 8 datasets (seed 42):")
+        print(f"\nRanking by mean MCC across 8 datasets (seed {SEED}):")
         print(ranking.to_string(index=False, float_format=lambda value: f"{value:.6f}"))
     _print_per_dataset_comparison(all_rows)
     print(f"\nTuned SpectralNFST: {tuned_path}")
