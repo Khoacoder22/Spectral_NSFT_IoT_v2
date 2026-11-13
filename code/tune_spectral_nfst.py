@@ -33,7 +33,6 @@ SCALERS = (
 FEATURES = (-1, 0)
 
 GAMMAS = (
-    ("heuristic", "heuristic"),
     ("0.001", 0.001),
     ("0.01", 0.01),
     ("0.1", 0.1),
