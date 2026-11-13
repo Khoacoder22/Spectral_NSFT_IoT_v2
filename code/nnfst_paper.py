@@ -64,19 +64,16 @@ class NNFSTPaper:
         if self.kernel == "linear":
             return X @ Y.T
 
-        # L05 exponential kernel
-        # K(x,y) = exp(-gamma * sqrt(||x-y||_2))
-        #
-        # Must be checked against the project's
-        # cpai kernel implementation.
+        if self.kernel == "l05_exponential_kernel":
+            # Match code/cpai/kernels.py exactly:
+            # exp(-gamma * sum_j sqrt(abs(x_j - y_j))).
+            # Keep this import local so the estimator remains importable by
+            # itself; the project kernel is loaded only when this option runs.
+            from cpai.kernels import l05_exponential_kernel
 
-        dist = euclidean_distances(X, Y)
+            return l05_exponential_kernel(X, Y, gamma=self.gamma)
 
-        np.sqrt(dist, out=dist)
-        np.multiply(dist, -self.gamma, out=dist)
-        np.exp(dist, out=dist)
-
-        return dist
+        raise ValueError(f"Unsupported kernel: {self.kernel}")
 
     @staticmethod
     def _scc_from_mutual_knn(

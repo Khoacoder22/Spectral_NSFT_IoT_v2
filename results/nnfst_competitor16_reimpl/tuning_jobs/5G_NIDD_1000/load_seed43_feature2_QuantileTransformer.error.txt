@@ -1,11 +1,9 @@
 ValueError: Input contains NaN, infinity or a value too large for dtype('float64').
 Traceback (most recent call last):
-  File "D:\Research-new\Spectral-NFST\code\nnfst_competitor16_pipeline.py", line 119, in tune
-    Xtr, ytr, _Xtest, _ytest = load_prepared(dataset, limit, scaler, poly, seed)
-  File "D:\Research-new\Spectral-NFST\code\run_nnfst_paper.py", line 62, in load_prepared
-    result = preprocess(
-  File "D:\Research-new\Spectral-NFST\code\cpai\preprocessing.py", line 77, in preprocess
-    X = PolynomialFeatures(poly, interaction_only=True).fit_transform(X)
+  File "D:\Research-new\Spectral-NFST\code\nnfst_competitor16_pipeline.py", line 171, in tune
+    xf, yf, xv, yv, inner_original, outer_train_rows = load_nested_inner(
+  File "D:\Research-new\Spectral-NFST\code\nnfst_competitor16_pipeline.py", line 122, in load_nested_inner
+    X_fit_raw = polynomial.fit_transform(X_fit_raw)
   File "C:\Program Files\Python310\lib\site-packages\sklearn\base.py", line 852, in fit_transform
     return self.fit(X, **fit_params).transform(X)
   File "C:\Program Files\Python310\lib\site-packages\sklearn\preprocessing\_polynomial.py", line 287, in fit
