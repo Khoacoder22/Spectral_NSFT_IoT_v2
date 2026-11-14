@@ -1,2 +1,0 @@
-Dataset,Kernel,Gamma,Feature,Scaler,Q,Seed,Error
-ToN_IoT_1000,l05_exponential_kernel,heuristic,-1,RobustScaler,4,44,LinAlgError: SVD did not converge

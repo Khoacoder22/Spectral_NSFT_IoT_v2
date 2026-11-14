@@ -1,0 +1,61 @@
+Data Type,Task,Unknown labels,Known labels,Threshold,Components per class,Kernel,SCALER,Poly,Seed,N Train,N Test,Training time,Test time,MCC,ACC,TPR Macro,FPR,PPV Macro,F1 Macro,NDR,FPR_N,AUC_N,AUPRC_N,CFS Matrix
+IoTID20_2000,SpectralNFST-MultiNovelty,"[""DoS""]","['0Normal', 'MITM ARP Spoofing', 'Mirai', 'Scan']",0.0,2,l05_exponential_kernel,QuantileTransformer,-1,42,6160,2000,84.8852165999997,6.138626200001454,0.0,68.0,20.0,20.0,4.0,6.666666666666668,100.0,100.0,99.15718749999999,89.17727222418064,"[[400   0   0   0   0]
+ [400   0   0   0   0]
+ [400   0   0   0   0]
+ [400   0   0   0   0]
+ [400   0   0   0   0]]"
+IoTID20_2000,SpectralNFST-MultiNovelty,"[""DoS""]","['0Normal', 'MITM ARP Spoofing', 'Mirai', 'Scan']",0.0,2,l05_exponential_kernel,QuantileTransformer,-1,43,6160,2000,84.31408229999943,6.119908199994825,0.0,68.0,20.0,20.0,4.0,6.666666666666668,100.0,100.0,99.37390624999999,92.72582121495533,"[[400   0   0   0   0]
+ [400   0   0   0   0]
+ [400   0   0   0   0]
+ [400   0   0   0   0]
+ [400   0   0   0   0]]"
+IoTID20_2000,SpectralNFST-MultiNovelty,"[""DoS""]","['0Normal', 'MITM ARP Spoofing', 'Mirai', 'Scan']",0.0,2,l05_exponential_kernel,QuantileTransformer,-1,44,6160,2000,84.38186409999616,6.073978900007205,0.0,68.0,20.0,20.0,4.0,6.666666666666668,100.0,100.0,99.0440625,88.43052465765969,"[[400   0   0   0   0]
+ [400   0   0   0   0]
+ [400   0   0   0   0]
+ [400   0   0   0   0]
+ [400   0   0   0   0]]"
+IoTID20_2000,SpectralNFST-MultiNovelty,"[""MITM ARP Spoofing""]","['0Normal', 'DoS', 'Mirai', 'Scan']",0.0,2,l05_exponential_kernel,QuantileTransformer,-1,42,6160,2000,84.66033059998881,6.2083912000234704,0.0,68.0,20.0,20.0,4.0,6.666666666666668,100.0,100.0,74.93546874999998,31.23647065868513,"[[400   0   0   0   0]
+ [400   0   0   0   0]
+ [400   0   0   0   0]
+ [400   0   0   0   0]
+ [400   0   0   0   0]]"
+IoTID20_2000,SpectralNFST-MultiNovelty,"[""MITM ARP Spoofing""]","['0Normal', 'DoS', 'Mirai', 'Scan']",0.0,2,l05_exponential_kernel,QuantileTransformer,-1,43,6160,2000,84.73444659999222,6.12621930000023,0.0,68.0,20.0,20.0,4.0,6.666666666666668,100.0,100.0,76.1428125,32.60529023458473,"[[400   0   0   0   0]
+ [400   0   0   0   0]
+ [400   0   0   0   0]
+ [400   0   0   0   0]
+ [400   0   0   0   0]]"
+IoTID20_2000,SpectralNFST-MultiNovelty,"[""MITM ARP Spoofing""]","['0Normal', 'DoS', 'Mirai', 'Scan']",0.0,2,l05_exponential_kernel,QuantileTransformer,-1,44,6160,2000,106.38617320000776,6.035816399991745,0.0,68.0,20.0,20.0,4.0,6.666666666666668,100.0,100.0,74.95687500000001,31.82118444133747,"[[400   0   0   0   0]
+ [400   0   0   0   0]
+ [400   0   0   0   0]
+ [400   0   0   0   0]
+ [400   0   0   0   0]]"
+IoTID20_2000,SpectralNFST-MultiNovelty,"[""Mirai""]","['0Normal', 'DoS', 'MITM ARP Spoofing', 'Scan']",0.0,2,l05_exponential_kernel,QuantileTransformer,-1,42,6160,2000,84.64427910000086,6.03616850002436,0.0,68.0,20.0,20.0,4.0,6.666666666666668,100.0,100.0,91.87937500000001,70.78751124810977,"[[400   0   0   0   0]
+ [400   0   0   0   0]
+ [400   0   0   0   0]
+ [400   0   0   0   0]
+ [400   0   0   0   0]]"
+IoTID20_2000,SpectralNFST-MultiNovelty,"[""Mirai""]","['0Normal', 'DoS', 'MITM ARP Spoofing', 'Scan']",0.0,2,l05_exponential_kernel,QuantileTransformer,-1,43,6160,2000,84.14604210000834,6.059642200008966,0.0,68.0,20.0,20.0,4.0,6.666666666666668,100.0,100.0,92.2259375,71.63352293050036,"[[400   0   0   0   0]
+ [400   0   0   0   0]
+ [400   0   0   0   0]
+ [400   0   0   0   0]
+ [400   0   0   0   0]]"
+IoTID20_2000,SpectralNFST-MultiNovelty,"[""Mirai""]","['0Normal', 'DoS', 'MITM ARP Spoofing', 'Scan']",0.0,2,l05_exponential_kernel,QuantileTransformer,-1,44,6160,2000,97.18448210001225,6.42135099999723,0.0,68.0,20.0,20.0,4.0,6.666666666666668,100.0,100.0,92.636875,70.80517885981841,"[[400   0   0   0   0]
+ [400   0   0   0   0]
+ [400   0   0   0   0]
+ [400   0   0   0   0]
+ [400   0   0   0   0]]"
+IoTID20_2000,SpectralNFST-MultiNovelty,"[""Scan""]","['0Normal', 'DoS', 'MITM ARP Spoofing', 'Mirai']",0.0,2,l05_exponential_kernel,QuantileTransformer,-1,42,6160,2000,92.96797679999145,6.144308499991894,0.0,68.0,20.0,20.0,4.0,6.666666666666668,100.0,100.0,78.37796875,35.38024408562985,"[[400   0   0   0   0]
+ [400   0   0   0   0]
+ [400   0   0   0   0]
+ [400   0   0   0   0]
+ [400   0   0   0   0]]"
+IoTID20_2000,SpectralNFST-MultiNovelty,"[""Scan""]","['0Normal', 'DoS', 'MITM ARP Spoofing', 'Mirai']",0.0,2,l05_exponential_kernel,QuantileTransformer,-1,43,6160,2000,102.65498750002007,10.470318400010001,0.0,68.0,20.0,20.0,4.0,6.666666666666668,100.0,100.0,77.67046875,34.48499211262617,"[[400   0   0   0   0]
+ [400   0   0   0   0]
+ [400   0   0   0   0]
+ [400   0   0   0   0]
+ [400   0   0   0   0]]"
+IoTID20_2000,SpectralNFST-MultiNovelty,"[""Scan""]","['0Normal', 'DoS', 'MITM ARP Spoofing', 'Mirai']",0.0,2,l05_exponential_kernel,QuantileTransformer,-1,44,6160,2000,127.12669200001983,10.397266399988439,0.0,68.0,20.0,20.0,4.0,6.666666666666668,100.0,100.0,76.814375,33.08800311185111,"[[400   0   0   0   0]
+ [400   0   0   0   0]
+ [400   0   0   0   0]
+ [400   0   0   0   0]
+ [400   0   0   0   0]]"

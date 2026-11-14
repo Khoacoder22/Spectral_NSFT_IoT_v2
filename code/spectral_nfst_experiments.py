@@ -263,13 +263,13 @@ def run_spectral_nfst_multinovelty(
     """Run one multiclass multi-novelty experiment with a fixed threshold."""
     if kernel == "none":
         raise ValueError("SpectralNFST requires a kernel; use rbf (recommended)")
-    if threshold < 0:
+    if threshold is not None and threshold < 0:
         raise ValueError("threshold must be non-negative")
 
     df, resolved_limit = load_dataset(dataset, limit=limit)
     df = _sample_per_class(df, samples_per_class, seed)
     unknown_labels = list(unknown_labels)
-    X_train, y_train, X_test, y_test, encoder = _prepare_multinovelty_data(
+    X_train, y_train, X_cal, X_test, y_test, encoder  = _prepare_multinovelty_data(
         df, dataset, unknown_labels, poly, kernel, scaler, seed
     )
 
@@ -281,10 +281,13 @@ def run_spectral_nfst_multinovelty(
     )
     t0 = time.perf_counter()
     model.fit(X_train, y_train)
+    if threshold is None:
+        cal_scores = model.anomaly_score(X_cal)
+        threshold = float(np.quantile(cal_scores, 0.95))
     training_time = time.perf_counter() - t0
 
     t0 = time.perf_counter()
-    y_pred, anomaly_scores = model.predict_with_novelty(X_test)
+    y_pred, anomaly_scores = model.predict_with_novelty(X_test, threshold=threshold)
     test_time = time.perf_counter() - t0
     metrics = _novelty_metrics(y_test, y_pred, anomaly_scores)
 
