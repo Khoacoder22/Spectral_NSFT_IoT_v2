@@ -20,7 +20,7 @@ from spectral_nfst_experiments import (
 
 
 def main() -> int:
-    """Parse unknown labels and run one fixed-threshold novelty experiment."""
+    """Run novelty detection with a fixed or calibration-derived threshold."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--dataset", required=True, choices=DATASETS)
     parser.add_argument("--limit", type=int, choices=[1000, 2000])
@@ -33,8 +33,19 @@ def main() -> int:
         help="Print valid cleaned labels for this dataset and exit.",
     )
     parser.add_argument(
-        "--threshold", type=float,
-        help="Externally selected novelty threshold tau (required for a run).",
+        "--threshold",
+        type=float,
+        default=None,
+        help=(
+            "Optional fixed novelty distance threshold. If omitted, "
+            "calibrate on known training samples."
+        ),
+    )
+    parser.add_argument(
+        "--target-fpr",
+        type=float,
+        default=0.01,
+        help="Target false-positive rate used to calibrate the threshold.",
     )
     parser.add_argument("--kernel", default="rbf", choices=KERNEL_CHOICES)
     parser.add_argument("--scaler", default="QuantileTransformer", choices=SCALERS)
@@ -43,8 +54,10 @@ def main() -> int:
     parser.add_argument("--samples-per-class", type=int)
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument(
-        "--output", type=Path,
-        default=RESULTS_DIR / "spectral_nfst" / "multinovelty.csv",
+        "--output",
+        type=Path,
+        default=RESULTS_DIR / "spectral_nfst" / "multinovelty_calibrated.csv",
+        help="CSV output path (defaults to a new file to avoid mixing old runs).",
     )
     args = parser.parse_args()
 
@@ -54,8 +67,6 @@ def main() -> int:
         return 0
     if not args.unknown_labels:
         parser.error("--unknown-labels is required unless --list-classes is used")
-    if args.threshold is None:
-        parser.error("--threshold is required and must be selected outside the test set")
 
     try:
         row = run_spectral_nfst_multinovelty(
@@ -63,6 +74,7 @@ def main() -> int:
             limit=args.limit,
             unknown_labels=args.unknown_labels,
             threshold=args.threshold,
+            target_fpr=args.target_fpr,
             kernel=args.kernel,
             scaler=args.scaler,
             poly=args.poly,
@@ -76,6 +88,7 @@ def main() -> int:
 
     print(f"Dataset: {row['Data Type']}")
     print(f"Unknown labels: {row['Unknown labels']}")
+    print(f"Threshold: {row['Threshold']:.8g} (target FPR: {row['Target FPR']:.2%})")
     print(
         f"MCC={row['MCC']:.4f} F1={row['F1 Macro']:.2f} "
         f"NDR={row['NDR']:.2f} FPR_N={row['FPR_N']:.2f} "
