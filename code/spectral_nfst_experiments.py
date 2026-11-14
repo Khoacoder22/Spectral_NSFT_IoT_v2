@@ -11,9 +11,9 @@ two research questions:
     Multiclass novelty detection. One or more selected classes are removed from
     training and represented by label -1 in the mixed known/unknown test set.
 
-The novelty function requires an externally selected threshold. It never tunes
-that threshold on test labels, avoiding the test leakage present in the legacy
-notebook's ``Bruteforce_threshold`` prototype.
+The novelty function accepts an externally selected threshold or calibrates
+it on held-out known training samples. It never tunes the threshold on test
+labels, avoiding the test leakage present in the legacy notebook.
 """
 
 from __future__ import annotations
@@ -83,16 +83,7 @@ def _prepare_multinovelty_data(
     scaler: str,
     seed: int,
 ):
-    """Prepare the legacy CPAI ``drop_cls`` novelty split in reusable form.
-
-    The full dataset is first split 80/20 with stratification, matching the
-    existing CPAI preprocessing convention. Selected unknown classes are then
-    removed only from the training partition. In test labels they become -1;
-    known labels retain the integer encoding learned from known training data.
-
-    Scaling, LOF filtering, and optional independent-row selection are kept in
-    the same order as ``cpai.preprocessing.preprocess``.
-    """
+    """Split known training data again to create an isolated calibration set."""
     unknown_labels = np.asarray(list(unknown_labels), dtype=object)
     if unknown_labels.size == 0:
         raise ValueError("At least one unknown label is required")
@@ -100,6 +91,7 @@ def _prepare_multinovelty_data(
     data = df.to_numpy()
     X = data[:, :-1].astype(np.float64)
     y_raw = data[:, -1]
+
     all_labels = np.unique(y_raw)
     missing = [label for label in unknown_labels if label not in all_labels]
     if missing:
@@ -107,43 +99,74 @@ def _prepare_multinovelty_data(
     if len(unknown_labels) >= len(all_labels):
         raise ValueError("At least one known class must remain for training")
 
-    # Preserve the dataset-specific imputation behavior of the existing CPAI
-    # preprocessing function.
-    if dataset == "IoTID20":
-        X[np.isinf(X)] = np.nan
-        X = SimpleImputer(strategy="mean").fit_transform(X)
-
-    if poly > 1:
-        X = PolynomialFeatures(poly, interaction_only=True).fit_transform(X)
-
+    # Keep the final test split untouched by model fitting and calibration.
     X_train_all, X_test, y_train_all, y_test_raw = train_test_split(
         X, y_raw, test_size=0.2, stratify=y_raw, random_state=seed
     )
 
-    # Core multi-novelty rule: unknown classes never enter model training.
-    known_train_mask = ~np.isin(y_train_all, unknown_labels)
-    X_train = X_train_all[known_train_mask]
-    y_train_raw = y_train_all[known_train_mask]
-    order = y_train_raw.argsort()
-    X_train, y_train_raw = X_train[order], y_train_raw[order]
+    # Unknown classes are excluded from training and calibration.
+    known_mask = ~np.isin(y_train_all, unknown_labels)
+    X_known = X_train_all[known_mask]
+    y_known = y_train_all[known_mask]
+
+    # Reserve known samples for threshold calibration.
+    X_train, X_cal, y_train_raw, _ = train_test_split(
+        X_known,
+        y_known,
+        test_size=0.2,
+        stratify=y_known,
+        random_state=seed,
+    )
+
+    X_train = X_train.copy()
+    X_cal = X_cal.copy()
+    X_test = X_test.copy()
+
+    # Clean non-finite values; fit the imputer on training data only.
+    for part in (X_train, X_cal, X_test):
+        part[~np.isfinite(part)] = np.nan
+
+    imputer = SimpleImputer(strategy="mean")
+    X_train = imputer.fit_transform(X_train)
+    X_cal = imputer.transform(X_cal)
+    X_test = imputer.transform(X_test)
+
+    # Fit feature expansion on training data and reuse it for calibration/test.
+    if poly > 1:
+        poly_transform = PolynomialFeatures(poly, interaction_only=True)
+        X_train = poly_transform.fit_transform(X_train)
+        X_cal = poly_transform.transform(X_cal)
+        X_test = poly_transform.transform(X_test)
 
     encoder = LabelEncoder()
     y_train = encoder.fit_transform(y_train_raw)
-    known_lookup = {label: index for index, label in enumerate(encoder.classes_)}
+    known_lookup = {
+        label: index for index, label in enumerate(encoder.classes_)
+    }
     y_test = np.asarray(
         [known_lookup.get(label, -1) for label in y_test_raw], dtype=int
     )
 
     fitted_scaler = _scaler(scaler, random_state=seed)
     fitted_scaler.fit(X_train)
-    X_train = np.nan_to_num(fitted_scaler.transform(X_train), nan=0.0)
-    X_test = np.nan_to_num(fitted_scaler.transform(X_test), nan=0.0)
+
+    def transform(part):
+        return np.nan_to_num(
+            fitted_scaler.transform(part),
+            nan=0.0,
+            posinf=0.0,
+            neginf=0.0,
+        )
+
+    X_train = transform(X_train)
+    X_cal = transform(X_cal)
+    X_test = transform(X_test)
 
     X_train, y_train = _remove_outliers_lof(X_train, y_train)
     if poly != -1:
         X_train, y_train = form_independent(X_train, y_train, kernel)
 
-    return X_train, y_train, X_test, y_test, encoder
+    return X_train, y_train, X_cal, X_test, y_test, encoder
 
 
 def _novelty_metrics(
@@ -250,7 +273,8 @@ def run_spectral_nfst_multinovelty(
     *,
     dataset: str,
     unknown_labels: Iterable,
-    threshold: float,
+    threshold: float | None = None,
+    target_fpr: float = 0.01,
     limit: int | None = None,
     kernel: str = "rbf",
     scaler: str = "QuantileTransformer",
@@ -260,17 +284,22 @@ def run_spectral_nfst_multinovelty(
     seed: int = 42,
     output: Path | None = None,
 ) -> dict:
-    """Run one multiclass multi-novelty experiment with a fixed threshold."""
+    """Run novelty detection with a fixed or calibration-derived threshold."""
     if kernel == "none":
         raise ValueError("SpectralNFST requires a kernel; use rbf (recommended)")
     if threshold is not None and threshold < 0:
         raise ValueError("threshold must be non-negative")
+    if not 0.0 < target_fpr < 1.0:
+        raise ValueError("target_fpr must be between 0 and 1")
 
     df, resolved_limit = load_dataset(dataset, limit=limit)
     df = _sample_per_class(df, samples_per_class, seed)
     unknown_labels = list(unknown_labels)
-    X_train, y_train, X_cal, X_test, y_test, encoder  = _prepare_multinovelty_data(
-        df, dataset, unknown_labels, poly, kernel, scaler, seed
+
+    X_train, y_train, X_cal, X_test, y_test, encoder = (
+        _prepare_multinovelty_data(
+            df, dataset, unknown_labels, poly, kernel, scaler, seed
+        )
     )
 
     model = SpectralNFST(
@@ -279,16 +308,21 @@ def run_spectral_nfst_multinovelty(
         novelty_threshold=threshold,
         novelty_label=-1,
     )
-    t0 = time.perf_counter()
+
+    started = time.perf_counter()
     model.fit(X_train, y_train)
+    training_time = time.perf_counter() - started
+
     if threshold is None:
         cal_scores = model.anomaly_score(X_cal)
-        threshold = float(np.quantile(cal_scores, 0.95))
-    training_time = time.perf_counter() - t0
+        threshold = float(np.quantile(cal_scores, 1.0 - target_fpr))
 
-    t0 = time.perf_counter()
-    y_pred, anomaly_scores = model.predict_with_novelty(X_test, threshold=threshold)
-    test_time = time.perf_counter() - t0
+    started = time.perf_counter()
+    y_pred, anomaly_scores = model.predict_with_novelty(
+        X_test, threshold=threshold
+    )
+    test_time = time.perf_counter() - started
+
     metrics = _novelty_metrics(y_test, y_pred, anomaly_scores)
 
     row = {
@@ -297,6 +331,7 @@ def run_spectral_nfst_multinovelty(
         "Unknown labels": [str(label) for label in unknown_labels],
         "Known labels": [str(label) for label in encoder.classes_],
         "Threshold": threshold,
+        "Target FPR": target_fpr,
         "Components per class": components_per_class,
         "Kernel": kernel,
         "SCALER": scaler,
@@ -308,6 +343,7 @@ def run_spectral_nfst_multinovelty(
         "Test time": test_time,
         **metrics,
     }
+
     if output is not None:
         _append_novelty_row(row, output)
     return row
