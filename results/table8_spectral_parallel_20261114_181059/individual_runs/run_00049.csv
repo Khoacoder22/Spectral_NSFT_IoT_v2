@@ -1,0 +1,7 @@
+Data Type,Task,Unknown labels,Known labels,Threshold,Target FPR,Components per class,Kernel,Gamma,SCALER,Poly,Seed,N Train,N Test,Training time,Test time,MCC,ACC,TPR Macro,FPR,PPV Macro,F1 Macro,NDR,FPR_N,AUC_N,AUPRC_N,CFS Matrix
+CIC_IoT2023_1000,SpectralNFST-MultiNovelty,"[""Spoofing""]","['0Normal', 'DDoS/DoS', 'Mirai', 'Scan', 'Web']",0.03867550681414066,0.05,3,l05_exponential_kernel,0.1,QuantileTransformer,-1,42,5504,2000,119.50590240000747,3.4163647000095807,0.8470909726963142,96.38333333333333,83.45000000000002,2.17,83.45718350905035,83.01958122113001,45.5,5.388888888888889,90.94555555555554,44.55533882579975,"[[ 91  89   0   0   0  20]
+ [ 13 181   0   0   0   6]
+ [ 23   0 977   0   0   0]
+ [  6   0   0 193   1   0]
+ [ 31   0   0   0 169   0]
+ [ 24   4   0   0   0 172]]"

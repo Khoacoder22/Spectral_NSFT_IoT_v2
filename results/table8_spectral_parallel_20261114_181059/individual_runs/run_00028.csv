@@ -1,0 +1,7 @@
+Data Type,Task,Unknown labels,Known labels,Threshold,Target FPR,Components per class,Kernel,Gamma,SCALER,Poly,Seed,N Train,N Test,Training time,Test time,MCC,ACC,TPR Macro,FPR,PPV Macro,F1 Macro,NDR,FPR_N,AUC_N,AUPRC_N,CFS Matrix
+BoT_IoT_1000,SpectralNFST-MultiNovelty,"[""TCP""]","['0Normal', 'HTTP', 'UDP', 'scan', 'theft']",0.0016948803586751197,0.05,2,l05_exponential_kernel,0.01,QuantileTransformer,-1,42,4967,2024,93.59801000001607,1.7610132000409067,0.9523496172872606,98.66600790513834,94.82440476190477,0.8003952569169961,97.1933471933472,95.73008064193056,100.0,4.987684729064039,99.02847906403942,89.55351983916047,"[[400   0   0   0   0   0]
+ [ 33 167   0   0   0   0]
+ [ 11   0 389   0   0   0]
+ [  8   0   0 392   0   0]
+ [ 16   0   0   0 384   0]
+ [ 13   0   0   0   0 211]]"

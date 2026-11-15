@@ -1,0 +1,9 @@
+Data Type,Task,Unknown labels,Known labels,Threshold,Target FPR,Components per class,Kernel,Gamma,SCALER,Poly,Seed,N Train,N Test,Training time,Test time,MCC,ACC,TPR Macro,FPR,PPV Macro,F1 Macro,NDR,FPR_N,AUC_N,AUPRC_N,CFS Matrix
+ToN_IoT_1000,SpectralNFST-MultiNovelty,"[""DoS""]","['0Normal', 'BruteForce', 'DDoS', 'MITM', 'Malware', 'Scan', 'WebAttack']",0.00021641188845412785,0.05,3,l05_exponential_kernel,0.01,StandardScaler,0,44,5199,1920,105.85818809998455,2.806674799998291,0.9500171105355886,98.90625,95.36458333333333,0.625,96.16377284211764,95.40225798512122,99.0,4.709302325581395,97.1688953488372,60.52977966767437,"[[198   2   0   0   0   0   0   0]
+ [ 21 178   0   0   1   0   0   0]
+ [  4   0 116   0   0   0   0   0]
+ [  7   0   0 193   0   0   0   0]
+ [ 18   0   0   0 182   0   0   0]
+ [  9   0   0   0   0 391   0   0]
+ [  6   0   0   0   0   0 194   0]
+ [ 16   0   0   0   0   0   0 384]]"

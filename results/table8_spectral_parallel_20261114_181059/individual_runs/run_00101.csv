@@ -1,0 +1,4 @@
+Data Type,Task,Unknown labels,Known labels,Threshold,Target FPR,Components per class,Kernel,Gamma,SCALER,Poly,Seed,N Train,N Test,Training time,Test time,MCC,ACC,TPR Macro,FPR,PPV Macro,F1 Macro,NDR,FPR_N,AUC_N,AUPRC_N,CFS Matrix
+IoTID20_1000,SpectralNFST-MultiNovelty,"[""MITM ARP Spoofing""]","['0Normal', 'DoS']",0.009782106534610807,0.05,2,l05_exponential_kernel,0.01,QuantileTransformer,-1,43,1248,600,1.623623999999836,0.3307308000512421,0.5969603978237392,78.88888888888889,68.33333333333333,15.833333333333332,71.66816412099432,62.37672716421842,13.0,4.0,88.33875,66.87316746775984,"[[ 26 174   0]
+ [  3 197   0]
+ [ 13   0 187]]"

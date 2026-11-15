@@ -1,0 +1,10 @@
+Data Type,Task,Unknown labels,Known labels,Threshold,Target FPR,Components per class,Kernel,Gamma,SCALER,Poly,Seed,N Train,N Test,Training time,Test time,MCC,ACC,TPR Macro,FPR,PPV Macro,F1 Macro,NDR,FPR_N,AUC_N,AUPRC_N,CFS Matrix
+N_BaIoT_1000,SpectralNFST-MultiNovelty,"[""ack""]","['0Normal', 'combo', 'junk', 'scan', 'syn', 'tcp', 'udp', 'udpplain']",0.0009616389245589288,0.05,2,l05_exponential_kernel,0.001,QuantileTransformer,-1,42,4896,1800,91.53031229996122,8.323383899987675,0.9498008321809942,98.97530864197532,95.3888888888889,0.5763888888888888,96.7412642324303,95.52433592114613,100.0,5.1875,99.67937500000001,95.1774009186686,"[[200   0   0   0   0   0   0   0   0]
+ [ 55 145   0   0   0   0   0   0   0]
+ [  4   0 196   0   0   0   0   0   0]
+ [  2   0   0 198   0   0   0   0   0]
+ [  2   0   0   0 198   0   0   0   0]
+ [  2   0   0   0   0 198   0   0   0]
+ [  0   0   0   0   0   0 200   0   0]
+ [  4   0   0   0   0   0   0 196   0]
+ [ 14   0   0   0   0   0   0   0 186]]"

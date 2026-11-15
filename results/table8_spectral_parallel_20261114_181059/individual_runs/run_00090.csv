@@ -1,0 +1,16 @@
+Data Type,Task,Unknown labels,Known labels,Threshold,Target FPR,Components per class,Kernel,Gamma,SCALER,Poly,Seed,N Train,N Test,Training time,Test time,MCC,ACC,TPR Macro,FPR,PPV Macro,F1 Macro,NDR,FPR_N,AUC_N,AUPRC_N,CFS Matrix
+Edge_IIoTset_1000,SpectralNFST-MultiNovelty,"[""Uploading""]","['0Normal', 'Backdoor', 'DDoS_HTTP', 'DDoS_ICMP', 'DDoS_TCP', 'DDoS_UDP', 'Fingerprinting', 'MITM', 'Password', 'Port_Scanning', 'Ransomware', 'SQL_injection', 'Vulnerability_scanner', 'XSS']",1.9583656143202466e-05,0.05,5,l05_exponential_kernel,0.001,QuantileTransformer,-1,44,8560,3000,600.818904899992,10.195265399990603,0.7518821985790182,96.87555555555556,76.56666666666668,1.6738095238095239,79.88740458671842,76.19724900274109,26.0,5.214285714285714,84.86642857142857,25.907029858617936,"[[ 52   0   0  17   0   0   0  33   0   4   0   2  15   0  77]
+ [ 18 165   0   0   0   0   0   6   7   3   0   0   0   0   1]
+ [  8   0 179   0   0   0   0   1   0   0   1  11   0   0   0]
+ [  5   0   0 169   0   0   0   0   0   4   0   0  11   0  11]
+ [ 10   0   0   0 190   0   0   0   0   0   0   0   0   0   0]
+ [  7   0   0   0   0 193   0   0   0   0   0   0   0   0   0]
+ [ 25   0   0   0   0   0 175   0   0   0   0   0   0   0   0]
+ [  8  33   0   0   0   0   0 115   0   0  25  19   0   0   0]
+ [ 11   0   0   0   0   0   0   0  50   0   0 139   0   0   0]
+ [  3   0   0  14   0   0   0   0   0 149   2   0  23   0   9]
+ [  2   0   0   0   0   0   0   0   0   0 191   7   0   0   0]
+ [  0   0   1   0   0   0   0   0   0   0   5 194   0   0   0]
+ [ 11   0   0  13   0   0   0   0   0   3   0   0 168   0   5]
+ [ 30   0   0   8   0   0   0   0   0   2   0   0   1 159   0]
+ [  8   0   0  13   0   0   0   0   0   4   1  13  13   0 148]]"

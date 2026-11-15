@@ -1,0 +1,10 @@
+Data Type,Task,Unknown labels,Known labels,Threshold,Target FPR,Components per class,Kernel,Gamma,SCALER,Poly,Seed,N Train,N Test,Training time,Test time,MCC,ACC,TPR Macro,FPR,PPV Macro,F1 Macro,NDR,FPR_N,AUC_N,AUPRC_N,CFS Matrix
+5G_NIDD_1000,SpectralNFST-MultiNovelty,"[""TCPConnectScan""]","['0Normal', 'HTTPFlood', 'ICMPFlood', 'SYNFlood', 'SYNScan', 'SlowrateDoS', 'UDPFlood', 'UDPScan']",0.002110519577944894,0.05,2,l05_exponential_kernel,0.01,QuantileTransformer,-1,42,4896,1800,148.5090461000218,3.5761032999726012,0.9482384144071833,98.95061728395062,95.27777777777777,0.5902777777777778,96.6142801054462,95.56517034047125,100.0,5.1875,99.80312500000001,94.19910283048023,"[[200   0   0   0   0   0   0   0   0]
+ [ 19 181   0   0   0   0   0   0   0]
+ [ 27   0 173   0   0   0   0   0   0]
+ [  2   0   0 198   0   0   0   0   0]
+ [  8   0   0   0 192   0   0   0   0]
+ [  2   0   0   0   0 198   0   0   0]
+ [ 14   0   2   0   0   0 184   0   0]
+ [  3   0   0   0   0   0   0 197   0]
+ [  8   0   0   0   0   0   0   0 192]]"

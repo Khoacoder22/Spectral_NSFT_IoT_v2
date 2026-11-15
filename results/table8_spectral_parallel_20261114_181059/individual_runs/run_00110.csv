@@ -1,0 +1,6 @@
+Data Type,Task,Unknown labels,Known labels,Threshold,Target FPR,Components per class,Kernel,Gamma,SCALER,Poly,Seed,N Train,N Test,Training time,Test time,MCC,ACC,TPR Macro,FPR,PPV Macro,F1 Macro,NDR,FPR_N,AUC_N,AUPRC_N,CFS Matrix
+IoTID20_2000,SpectralNFST-MultiNovelty,"[""Mirai""]","['0Normal', 'DoS', 'MITM ARP Spoofing', 'Scan']",8.961443303276795e-05,0.05,5,l05_exponential_kernel,0.001,QuantileTransformer,-1,43,4928,2000,86.24621409998508,6.909877800033428,0.8082519693281536,93.82000000000001,84.55,3.8625,85.47373265192434,84.76402258513374,71.5,6.5,91.21828125,74.50723711593132,"[[286   3   0  62  49]
+ [ 32 364   0   4   0]
+ [ 33   0 367   0   0]
+ [ 24   3   0 358  15]
+ [ 15   1   0  68 316]]"

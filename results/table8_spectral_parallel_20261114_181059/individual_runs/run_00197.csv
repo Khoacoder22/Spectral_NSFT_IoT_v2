@@ -1,0 +1,9 @@
+Data Type,Task,Unknown labels,Known labels,Threshold,Target FPR,Components per class,Kernel,Gamma,SCALER,Poly,Seed,N Train,N Test,Training time,Test time,MCC,ACC,TPR Macro,FPR,PPV Macro,F1 Macro,NDR,FPR_N,AUC_N,AUPRC_N,CFS Matrix
+UNSW_NB15_1000,SpectralNFST-MultiNovelty,"[""Shellcode""]","['0Normal', 'Analysis', 'Backdoor', 'Exploits', 'Fuzzers', 'Reconnaissance', 'Worms']",0.06862450898993763,0.05,4,l05_exponential_kernel,0.1,QuantileTransformer,0,43,3688,1435,31.518840099975932,1.5222710000234656,0.4303228314910849,87.66550522648083,53.098214285714285,7.048282727725236,54.044340567498494,52.97584830558958,38.0,4.8582995951417,89.31052631578947,46.531850618737565,"[[ 76   0   0  25  15  25  59   0]
+ [ 12 188   0   0   0   0   0   0]
+ [  6   0  74  49   6  48  17   0]
+ [ 12   0  70  48  11  32  25   2]
+ [ 12   0  12  21 110  24  16   5]
+ [  8   0  40  49  31  46  26   0]
+ [  4   0   5   6   7  19 159   0]
+ [  6   0   0   0   2   0   1  26]]"
